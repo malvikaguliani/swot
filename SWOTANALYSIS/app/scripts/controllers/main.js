@@ -7,11 +7,26 @@
  * # MainCtrl
  * Controller of the swotApp
  */
-angular.module('swotApp')
-  .controller('MainCtrl', function () {
+ 
+
+  swotAnalysisApp.controller('MainCtrl', function ($scope,$state) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    $scope.goToLogin=function(){
+    	$state.go('login');
+    }
   });
+
+  swotAnalysisApp.controller('loginCtrl', function($scope) {
+    	$scope.Login=function(){
+    		if($scope.username=='malvika' &&$scope.password=='rachit'){
+    			alert("Hi "+$scope.username+" you have logged in");
+    		}
+    		else{
+    			alert("Sorry, wrong credentials!!!");
+    		}
+    	}
+    });

@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+var swotAnalysisApp=
 angular
   .module('swotApp', [
     'ngAnimate',
@@ -18,15 +19,22 @@ angular
     'ngTouch',
 	'ui.bootstrap',
 	'ui.router'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+  ]);
+  swotAnalysisApp.config(function ($routeProvider,$stateProvider, $urlRouterProvider,$locationProvider) {
+    $locationProvider.html5Mode(true).hashPrefix('!');
+
+    $stateProvider
+            .state('home', {
+                url: '/home',
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            })
+           .state('login', {
+                url: '/login',
+                templateUrl: 'views/login.html',
+                controller: 'loginCtrl'
+            });
+
+    $urlRouterProvider.otherwise('/home');
+     
   });
