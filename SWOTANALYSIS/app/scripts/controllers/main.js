@@ -15,10 +15,9 @@
       'AngularJS',
       'Karma'
     ];
-    $scope.goToLogin=function(){
-    	$state.go('login');
+    $scope.text="hello EVERYONE";
     }
-  });
+  );
 
   swotAnalysisApp.controller('loginCtrl', function($scope) {
     	$scope.Login=function(){
